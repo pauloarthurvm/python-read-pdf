@@ -6,14 +6,6 @@ idXp = "XP INVESTIMENTOS CCTVM S/A"
 idClear = "CLEAR CORRETORA - GRUPO XP"
 idAvenue = "AVENUE SECURITIES"
 
-pathClear001 = ".\\old-files\\NotaNegociacao_20190718.pdf"
-pathXp001 = ".\\old-files\\c1b2d275-60b2-4d66-9d53-7a069b4295c7.pdf"
-pathAvenue001 = ".\\old-files\\Document_1092023_65401_AM_DnYqtYMG.pdf"
-
-# reader = PyPDF2.PdfReader(pathAvenue001)
-
-# print(f"pages length = {len(reader.pages)}")
-
 # list to store files
 listOfFiles = []
 
@@ -45,6 +37,9 @@ for file in listOfFiles:
                 break
             elif (idXp in text):
                 print(f"{index} : {text} : {file} : page {page}")
+                dateRetrieved = util.genericGetDate(pageContent)
+                if (dateRetrieved):
+                    util.copyAndRenameGeneric(file, dateRetrieved, "xpinv")
                 break
             elif (idAvenue in text):
                 print(f"{index} : {text} : {file} : page {page}")
