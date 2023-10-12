@@ -25,3 +25,11 @@ def genericGetDate(content: list):
             print(f"date:{dateStr}")
             return dateStr
     return False
+
+def copyAndRenameGeneric(oldFile: str, dateStr: str, broker: str):
+    dateList = dateStr.split("/")
+    newFiles_path = ".\\new-files"
+    if not os.path.exists(newFiles_path):
+        os.makedirs(newFiles_path)
+    shutil.copyfile(oldFile, f"{newFiles_path}\\{broker}_{dateList[2]}_{dateList[1]}_{dateList[0]}.pdf")
+    return True

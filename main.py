@@ -40,6 +40,8 @@ for file in listOfFiles:
             if (idClear in text):
                 print(f"{index} : {text} : {file} : page {page}")
                 dateRetrieved = util.genericGetDate(pageContent)
+                if (dateRetrieved):
+                    util.copyAndRenameGeneric(file, dateRetrieved, "clear")
                 break
             elif (idXp in text):
                 print(f"{index} : {text} : {file} : page {page}")
