@@ -23,6 +23,15 @@ for file in os.listdir(oldFilesDir):
     if os.path.isfile(os.path.join(oldFilesDir, file)) and file.endswith(".pdf"):
         listOfFiles.append(oldFilesDir + "\\" + file)
 
+
+newFiles_path = ".\\new-files"
+if os.path.exists(newFiles_path):
+    for file in os.listdir(newFiles_path):
+        file_path = os.path.join(newFiles_path, file)
+        os.remove(file_path)
+else:
+    os.makedirs(newFiles_path)
+
 for file in listOfFiles:
     reader = PyPDF2.PdfReader(file)
     for page in range(len(reader.pages)):
