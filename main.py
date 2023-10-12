@@ -1,5 +1,6 @@
-import PyPDF2
 import os
+import PyPDF2
+import util
 
 idXp = "XP INVESTIMENTOS CCTVM S/A"
 idClear = "CLEAR CORRETORA - GRUPO XP"
@@ -34,5 +35,5 @@ for file in listOfFiles:
                 print(f"{index} : {text} : {file} : page {page}")
                 break
             elif (idAvenue in text):
-                print(f"{index} : {text} : {file} : page {page}")
+                util.avenueGetDate(pageContent)
                 break
