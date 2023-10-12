@@ -44,5 +44,8 @@ for file in listOfFiles:
                 print(f"{index} : {text} : {file} : page {page}")
                 break
             elif (idAvenue in text):
-                util.avenueGetDate(pageContent)
+                print(f"{index} : {text} : {file} : page {page}")
+                dateRetrieved = util.avenueGetDate(pageContent)
+                if (dateRetrieved):
+                    util.copyAndRenameAvenue(file, dateRetrieved)
                 break
