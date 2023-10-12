@@ -12,8 +12,8 @@ def avenueGetDate(content: list):
 
 def copyAndRenameAvenue(oldFile: str, dateStr: str):
     dateList = dateStr.split("/")
-    newFiles_path = ".\\new-files"
-    if not os.path.exists(newFiles_path):
-        os.makedirs(newFiles_path)
-    shutil.copyfile(oldFile, f"{newFiles_path}\\avenue_20{dateList[2]}_{dateList[0]}_{dateList[1]}.pdf")
+    newFilesDir = ".\\new-files"
+    if not os.path.exists(newFilesDir):
+        os.makedirs(newFilesDir)
+    shutil.copyfile(oldFile, f"{newFilesDir}\\avenue_20{dateList[2]}_{dateList[0]}_{dateList[1]}.pdf")
     return True

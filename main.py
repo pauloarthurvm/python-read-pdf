@@ -16,21 +16,21 @@ pathAvenue001 = ".\\old-files\\Document_1092023_65401_AM_DnYqtYMG.pdf"
 
 # list to store files
 listOfFiles = []
-oldFilesDir = ".\\old-files"
 
+oldFilesDir = ".\\old-files"
 for file in os.listdir(oldFilesDir):
     file: str
     if os.path.isfile(os.path.join(oldFilesDir, file)) and file.endswith(".pdf"):
         listOfFiles.append(oldFilesDir + "\\" + file)
 
 
-newFiles_path = ".\\new-files"
-if os.path.exists(newFiles_path):
-    for file in os.listdir(newFiles_path):
-        file_path = os.path.join(newFiles_path, file)
+newFilesDir = ".\\new-files"
+if os.path.exists(newFilesDir):
+    for file in os.listdir(newFilesDir):
+        file_path = os.path.join(newFilesDir, file)
         os.remove(file_path)
 else:
-    os.makedirs(newFiles_path)
+    os.makedirs(newFilesDir)
 
 for file in listOfFiles:
     reader = PyPDF2.PdfReader(file)
