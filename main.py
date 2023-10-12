@@ -39,6 +39,7 @@ for file in listOfFiles:
         for index, text in enumerate(pageContent):
             if (idClear in text):
                 print(f"{index} : {text} : {file} : page {page}")
+                dateRetrieved = util.genericGetDate(pageContent)
                 break
             elif (idXp in text):
                 print(f"{index} : {text} : {file} : page {page}")

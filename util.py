@@ -17,3 +17,11 @@ def copyAndRenameAvenue(oldFile: str, dateStr: str):
         os.makedirs(newFilesDir)
     shutil.copyfile(oldFile, f"{newFilesDir}\\avenue_20{dateList[2]}_{dateList[0]}_{dateList[1]}.pdf")
     return True
+
+def genericGetDate(content: list):
+    for index, text in enumerate(content):
+        if ("Data pregão" in text):
+            dateStr: str = content[index+1]
+            print(f"date:{dateStr}")
+            return dateStr
+    return False
