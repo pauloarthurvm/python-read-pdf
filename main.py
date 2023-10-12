@@ -13,6 +13,13 @@ reader = PyPDF2.PdfReader(pathAvenue001)
 
 print(f"pages length = {len(reader.pages)}")
 
+# list to store files
+listOfFiles = []
+oldFilesDir = ".\\old-files"
+for file in os.listdir(oldFilesDir):
+    if os.path.isfile(os.path.join(oldFilesDir, file)):
+        listOfFiles.append(oldFilesDir + "\\" + file)
+        
 for page in range(len(reader.pages)):
     pageContent = (reader.pages[page-1].extract_text().split("\n"))
     for index, text in enumerate(pageContent):
